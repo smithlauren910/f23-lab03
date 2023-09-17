@@ -1,4 +1,4 @@
-import { IntQueue } from './queue'
+import { IntQueue } from './queue.js'
 
 /**
  * A resizable-array implementation of the {@link IntQueue} interface. The head of

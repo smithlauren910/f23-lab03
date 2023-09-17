@@ -1,4 +1,4 @@
-import { newArrayIntQueue } from "../src/arrayqueue";
+import { newArrayIntQueue } from "../src/arrayqueue.js";
 import { newLinkedListIntQueue } from "../src/linkedlistqueue.js";
 
 // pick one queue implementation, can run test easily for both, due to subtype polymorphism
