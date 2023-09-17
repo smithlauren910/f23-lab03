@@ -30,12 +30,35 @@ test("test peek: queue with 2 element should peek the one that was most recently
     expect(queue.peek()).toEqual(3)
 })
 
+test("test clear: should clear all elements from queue", () => {
+    const queue = createQueue()
+    queue.enqueue(0)
+    queue.enqueue(1)
+    expect(queue.size()).toBe(2);
+    queue.clear();
+    expect(queue.size()).toBe(0);
+})
+
 let param = [5, 10, 1000000]
 // parameterized test, apply to each value of the parameter
 test.each(param)("test enqueue: enqueued number %d is correct", (nr) => {
     const queue = createQueue()
     queue.enqueue(nr)
     expect(queue.peek()).toBe(nr)
+})
+
+// test dequeue function to remove tail
+test("test dequeue: empty queue should dequeue null", () => {
+    const queue = createQueue()
+    queue.dequeue()
+    expect(queue.peek()).toBe(null)
+})
+
+test.each(param)("test dequeue: should dequeue last in", () => {
+    const queue = createQueue()
+    queue.enqueue(1)
+    queue.enqueue(2)
+    expect(queue.dequeue()).toEqual(2)
 })
 
 // can nest tests with shared descriptions for better readability
